@@ -57,23 +57,34 @@ if(document.getElementsByClassName("block00")[0]) {
 		showImage("player.png", "35", "35", top, left);
 	}
 
-// poruszanie się	
+function move() {
 
-function moving(key) {
+	document.addEventListener("keydown", function(event) {
+  	var key = (event.keyCode);
+  	var currentPositionTop = document.getElementById("player").getBoundingClientRect().top;
+	var currentPositionLeft = document.getElementById("player").getBoundingClientRect().left;
+
 	switch (key) {
 		case 40:
-		test
+		showImage("player.png", "35", "35", currentPositionTop +48, currentPositionLeft);
+		break;
 
-	}
+		case 38:
+		showImage("player.png", "35", "35", currentPositionTop -48, currentPositionLeft);
+		break;
 
-}
+		case 37:
+		showImage("player.png", "35", "35", currentPositionTop, currentPositionLeft -48);
+		break;
 
-document.addEventListener("keydown", function(event) {
-  	moving(event.keyCode);
-});
+		case 39:
+		showImage("player.png", "35", "35", currentPositionTop, currentPositionLeft +48);
+		break;
 
+		default:
+		break;
+	}}
+	)
+};
 
-
-
-
-
+move();
