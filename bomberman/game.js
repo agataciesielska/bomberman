@@ -39,52 +39,50 @@ function searchFirstTilePosition(){
 	return position;
 }
 
-function showImage(src, width, height, top, left) {
+function showPacman(top, left) {
     var img = document.createElement("img");
-    img.src = src;
-    img.width = width;
-    img.height = height;
-    img.setAttribute("style", "position: absolute; top: " + top + "px; left: " + left + "px");
+    img.src = "player.png";
+    img.setAttribute("style", "width: 35px; height: 35px; position: absolute; top: " + top + "px; left: " + left + "px");
     img.setAttribute("id", "player");
 
-    // This next line will just add it to the <body> tag
     document.body.appendChild(img);
 }
+var pacmanPosition = [];
 
 if(document.getElementsByClassName("block00")[0]) {
 		top = searchFirstTilePosition()[0];
     	left = searchFirstTilePosition()[1];	
-		showImage("player.png", "35", "35", top, left);
+		showPacman(top, left);
+		var pacmanPosition = [top, left];
 	}
 
 function move() {
 
 	document.addEventListener("keydown", function(event) {
   	var key = (event.keyCode);
-  	var currentPositionTop = document.getElementById("player").getBoundingClientRect().top;
-	var currentPositionLeft = document.getElementById("player").getBoundingClientRect().left;
 
 	switch (key) {
 		case 40:
-		showImage("player.png", "35", "35", currentPositionTop +48, currentPositionLeft);
+		pacmanPosition[0] += 48;
 		break;
 
 		case 38:
-		showImage("player.png", "35", "35", currentPositionTop -48, currentPositionLeft);
+		pacmanPosition[0] -= 48;
 		break;
 
 		case 37:
-		showImage("player.png", "35", "35", currentPositionTop, currentPositionLeft -48);
+		pacmanPosition[1] -= 48;
 		break;
 
 		case 39:
-		showImage("player.png", "35", "35", currentPositionTop, currentPositionLeft +48);
+		pacmanPosition[1] += 48;
 		break;
 
 		default:
 		break;
-	}}
-	)
+	}})
+	showPacman(pacmanPosition[0], pacmanPosition[1]);
+	
 };
 
 move();
