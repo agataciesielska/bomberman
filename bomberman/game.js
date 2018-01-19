@@ -47,13 +47,14 @@ function showPacman(top, left) {
 
     document.body.appendChild(img);
 }
+
 var pacmanPosition = [];
 
 if(document.getElementsByClassName("block00")[0]) {
-		top = searchFirstTilePosition()[0];
+		top22 = searchFirstTilePosition()[0];
     	left = searchFirstTilePosition()[1];	
-		showPacman(top, left);
-		var pacmanPosition = [top, left];
+		showPacman(top22, left);
+		var pacmanPosition = [top22, left];
 	}
 
 function move() {
@@ -81,8 +82,10 @@ function move() {
 		default:
 		break;
 	}})
-	showPacman(pacmanPosition[0], pacmanPosition[1]);
+
 	
 };
 
 move();
+showPacman(pacmanPosition[0], pacmanPosition[1]);
+
