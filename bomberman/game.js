@@ -45,7 +45,7 @@ function showPacman(top, left) {
     img.setAttribute("style", "width: 35px; height: 35px; position: absolute; top: " + top + "px; left: " + left + "px");
     img.setAttribute("id", "player");
 
-    document.body.appendChild(img);
+    display = document.body.appendChild(img);
 }
 
 var pacmanPosition = [];
@@ -83,7 +83,6 @@ function move() {
 		break;
 	}})
 
-	
 };
 
 move();
