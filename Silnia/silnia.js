@@ -6,8 +6,9 @@ function strongCounting(parameter) {
         strongCounting(parameter)
 }
         else {
+           console.log(score);
        return score;
         }
 }
 
-strongCounting(3);
+

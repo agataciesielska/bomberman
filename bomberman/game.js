@@ -44,7 +44,6 @@ function showPacman(top, left) {
     img.src = "player.png";
     img.setAttribute("style", "width: 35px; height: 35px; position: absolute; top: " + top + "px; left: " + left + "px");
     img.setAttribute("id", "player");
-
     display = document.body.appendChild(img);
 }
 
@@ -54,14 +53,11 @@ if(document.getElementsByClassName("block00")[0]) {
 		top22 = searchFirstTilePosition()[0];
     	left = searchFirstTilePosition()[1];	
 		showPacman(top22, left);
-		var pacmanPosition = [top22, left];
 	}
 
 function move() {
-
-	document.addEventListener("keydown", function(event) {
+	document.addEventListener("keydown", function keying(event) {
   	var key = (event.keyCode);
-
 	switch (key) {
 		case 40:
 		pacmanPosition[0] += 48;
@@ -82,9 +78,8 @@ function move() {
 		default:
 		break;
 	}})
-
+    showPacman[pacmanPosition[0], pacmanPosition[1]];
 };
 
 move();
-showPacman(pacmanPosition[0], pacmanPosition[1]);
 
